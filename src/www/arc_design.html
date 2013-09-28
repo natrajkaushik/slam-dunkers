@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+
+
+<head>
+
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css" />
+<script type="text/javascript" src="./www/scripts/jquery.js"></script>
+<script type="text/javascript" src="./www/scripts/jquery.flot.js"></script>
+<script type="text/javascript" src="./www/scripts/ajax_1.js"></script>
+<script type="text/javascript" src="./www/scripts/date.js"></script>
+<script type="text/javascript" src="./www/scripts/draw_arc_data.js"></script>
+<script type="text/javascript" src="./www/scripts/draw_arc.js"></script>
+<!--<script type="text/javascript" src="./canvas_test.js"></script>-->
+
+
+
+<style>
+body{
+    height: 1500px;
+    background: #717171;
+}
+canvas{
+    position:absolute;
+    left: 40px;
+    top: 0px;
+}
+
+#window1{
+    position: absolute;
+    top: 20px;
+    left: 2050px;
+    z-index: 1;
+    width: 700px;
+    
+}
+
+#placeholder{
+
+    width:700px;
+    height:500px;
+    font-family: sans-serif;
+    font-size: 20px;
+    margin: 50px;
+    max-width: 800px;
+}
+#playerProfile{
+    position: absolute;
+    left: 2200px;
+    top: 900px;
+    z-index: 1;
+}
+
+#playerRange{
+    -webkit-appearance: slider-vertical;
+    width: 20px;
+    height: 1200px;  
+    z-index: 2;  
+}
+
+#seasonRange{
+    width:400px;
+}
+
+#seasonSlider{
+    position : absolute;
+    top: 1250px;
+    left: 900px;    
+}
+#seasonLabel1{
+    position: absolute;
+    top: 1300px;
+    left: 870px;
+}
+#seasonLabel2{
+    position: absolute;
+    top: 1300px;
+    left: 1000px;
+}
+#seasonLabel3{
+    position: absolute;
+    top: 1300px;
+    left: 1140px;
+}
+#seasonLabel4{
+    position: absolute;
+    top: 1300px;
+    left: 1260px;
+}
+
+#comparePlayer, #buttons{
+    margin-left: 50px;
+}
+#toreset{
+    position: absolute;
+    top:20px;
+    left: 100px;
+    width: 200px;
+    height: 80px;
+    z-index: 1;
+}
+#choices{
+    position: absolute;
+    top:20px;
+    left: 350px;
+    z-index: 1;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div id="playerSlider"> 
+    <input id="playerRange" type="range" min="1" max="16" step="1" value="1" />
+</div>
+<button id="toreset">Reset</button>
+<p id="choices">Show: </br></br>
+    <input type="checkbox" id="pts"><label>Points</label></br>
+    <input type="checkbox" id="ast"><label>Assists</label></br>
+    <!-- <input type="checkbox" id="rbs"><label>Rebounds</label></br> -->
+    <input type="checkbox" id="stl"><label>Steals/Blocks</label>
+</p>
+<canvas id="arc" width="3000" height="1200" style="background-color:#717171"></canvas>
+<div id="window1">
+    <p>
+        <!-- <button id="more">Wanna Investigate More? </button> -->
+    </p>
+    <div id="more-content">
+        
+        <p> <h2>The minutes played in each game during <span id="seasoninfo"></span> <br> by <strong><span id="playerinfo"></span> </strong> <span id="timeslot"></span><span id="timeslot_1"></span></h2></p>
+        <p>
+        <div id="placeholder" > Choose your player? </div>
+        <h2>Compare him with maximum 3 other players</h2></p>
+        <select id="comparePlayer" >
+                <option>To select a player for comparison</option>
+                <option id="Lebron">Lebron</option>
+                <option id="Durant">Durant</option>
+                <option id="Duncan">Duncan</option>
+                <option id="Dwight">Dwight</option>
+                <option id="Kobe">Kobe</option>
+               <!--  <option id="Garnett">Garnett</option> -->
+                <option id="Carmelo">Carmelo</option>
+                <option id="CP3">CP3</option>
+                <option id="Dirk">Dirk</option>
+                <option id="DWill">DWill</option>
+                <option id="JasonKidd">JasonKidd</option>
+                <option id="JoshSmith">JoshSmith</option>
+                <option id="Rondo">Rondo</option>
+                <option id="Iguodala">Iguodala</option>
+                <option id="DWade">DWade</option>
+                <option id="DRose">DRose</option>
+                <option id="DavidLee">DavidLee</option>
+                <option id="Nash">Nash</option>
+        </select> </p>
+        <p id = "buttons">
+        <button id="whole">Entire Season</button>
+        <button id="regular">Regular Season</button>
+        <button id="playOff">Playoffs</button>
+        <button id="april">April</button>
+        </p>
+        
+    </div>
+</div>
+<div id="playerProfile">
+    <img id="profile_pic" src="./www/images/Lebron.jpg"></img>
+</div>
+<div id="seasonSlider"> 
+    <input id="seasonRange" type="range" min="1" max="4" step="1" value="1"/>
+</div>
+<div id="seasonLabel1">2008-2009</div>
+<div id="seasonLabel2">2009-2010</div>
+<div id="seasonLabel3">2010-2011</div>
+<div id="seasonLabel4">2011-2012</div>
+
+
+
+
+
+</body>
+
+
+</html>
