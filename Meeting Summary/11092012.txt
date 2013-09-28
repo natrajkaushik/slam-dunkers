@@ -1,5 +1,0 @@
-1) Draw the shapes
-2) Give colors
-3) Add Events
-	onClick
-	mouseOver
